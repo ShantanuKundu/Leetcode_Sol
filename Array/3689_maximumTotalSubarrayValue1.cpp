@@ -3,7 +3,7 @@
 
 /*
 ========================================
-MAXIMUM TOTAL SUBARRAY VALUE 1 - LEETCODE 23689
+MAXIMUM TOTAL SUBARRAY VALUE 1 - LEETCODE 3689
 ========================================
 
 Description:
@@ -47,6 +47,16 @@ Example 3
 Input: nums = [22], k = 1
 Output: 0
 
+----------------------------------------
+Example 4
+----------------------------------------
+
+Input: nums = [701025805,484014287,486484825,479659005,127752519,497392660,905035207,885813233,36336196,83624455,562558760,
+504283643,414557507,340461196,75269772,787067318,310705037,994901461,
+509673195,908722607,69228965,239220571,719440526,986897320], k = 78
+
+Output: 74768090670
+
 
 ========================================
 SOLUTION 
@@ -59,32 +69,14 @@ Space Complexity : O(1)
 
 class Solution {
 public:
-    vector<int> leftRightDifference(vector<int>& nums) {
-        vector<int> leftSum, rightSum;
-        int n = nums.size(), sum=0;
-        //First element for Left Sum will be 0.
-        leftSum.push_back(sum);
-        //Left Sum vector      
-        for(int i = 0; i<n-1; i++){
-            sum+=nums[i];
-            leftSum.push_back(sum);
-        } 
-        sum = 0;
-
-        //Last element of Right Sum will be 0;
-        rightSum.push_back(sum);
-        //Right Sum vector 
-        for(int i=n-1; i>0; i--){
-            sum+=nums[i];
-            rightSum.push_back(sum);
-        } 
-        //Reversing the vector
-        reverse(rightSum.begin(), rightSum.end());
-
-        vector<int> answer;
-        for(int i = 0; i<n; i++){
-            answer.push_back(abs(leftSum[i]  - rightSum[i]));
+    long long maxTotalValue(vector<int>& nums, int k) {
+        int min = INT_MAX, max = INT_MIN;
+        for(int i: nums){
+            if(i < min)
+                min = i;
+            if(i > max)
+                max = i;    
         }
-        return answer;
+        return (long long)(max-min)*k;  //Incase of integer overflow. Refer to Example 4.
     }
 };
