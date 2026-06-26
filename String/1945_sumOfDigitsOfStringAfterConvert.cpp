@@ -37,9 +37,7 @@ Example 2
 ----------------------------------------
 
 Input: s = "leetcode", k = 2
-
 Output: 6
-
 Explanation:
 
 The operations are as follows:
