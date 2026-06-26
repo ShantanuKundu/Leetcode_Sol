@@ -1,0 +1,34 @@
+	1. Earlier JS was used in Browser Console only or was attached in an HTML file. There was no compiler or interpreter to directly execute JS file.
+		a. Previously, only used to make interactive web pages.
+	2. Later, Google's V8 engine was used to create the software to execute standalone JS file. Written in C++. Its Open Source, and is also used in Node. It implements Ecmascript.
+		a. V8: Google's Open Source high performance  JS and Web Assembly Engine, written in JS.
+		b. Node JS: Free, OS, Cross-Platform JS runtime environment that  lets developers create server, web apps, command line tools and scripts.--> Outside of the browser.
+		c. Other implementations of V8: Deno, Bun. 
+	3. Features:
+		a. Interactive Web Pages
+		b. Frontend and Backend (running on Server) Web Apps
+		c. Desktop apps (Electron)
+		d. Mobile apps (APIs, React Native)
+	4. Othe engine implementation of JS(engines): 
+		a. JSCore: Safari
+		b. V8
+		c. SpiderMonkey: Firefox
+
+Node:
+	1. node file-name.js: This interprets the file line by line, using the V8 engine and the output is shown in the terminal. Node is an Interpreter.
+	2. What happens behind the scene
+		a. Before run-time: [This doesn't happen all at one point of time, for some applications, they might be executed on the browser, only after causing a trigger, like clicking Submit, will the action take place.]
+			i. Tokenization (Lexical Analysis): Each keyword is broken down as Tokens, thus removing unnecessary whitespaces and comments.
+			ii. Parsing (Syntactical Analysis): Then the engine checks if the code follows the rule of JS. It organizes them into tree-like structure- Abstract Syntax Tree (AST), it represents the hierarchy and meaning of your code.
+			Eg- let x = 5 + 10; 
+			--This means--
+			VariableDeclaration
+			 └─ Identifier: x
+			 └─ BinaryExpression
+			     ├─ Number: 5
+			     └─ Operator: +
+			     └─ Number: 10
+		b. JIT Compiler (Just in Time): Mechanism which helps in translating (converts) the code into Byte Code. So that its faster to convert to machine code, platform independent. The entire JS code, thus doesn't need to be executed each time for separate machine.
+		c. Byte Code (Translation): Not the machine code, but a "Just before" the Machine Code.
+Code is executed.        
+
