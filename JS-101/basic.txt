@@ -32,3 +32,4 @@ Node:
 		c. Byte Code (Translation): Not the machine code, but a "Just before" the Machine Code.
 Code is executed.        
 
+Empty Push on June 28th  
